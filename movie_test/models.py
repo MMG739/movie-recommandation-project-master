@@ -1,5 +1,6 @@
 from audioop import avg
 from django.db import models
+from django import forms
 
 # Create your models here.
 from django.db import models
@@ -46,3 +47,6 @@ class Series(Media):
 class Rating(models.Model):
     media = models.ForeignKey(Media, on_delete=models.CASCADE)
     rating = models.IntegerField()
+
+class SearchForm(forms.Form):
+    q = forms.CharField(label='Recherche', max_length=100)

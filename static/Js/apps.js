@@ -24,6 +24,14 @@ const search = document.getElementById('search');
 const searchURL = BASE_URL + '/search/movie?' + API_KEY;
 
 
+function performSearch() {
+  var searchQuery = document.getElementById('search-input').value;
+  if (searchQuery.trim().length > 0) {
+      window.location.href = "{% url 'search' %}?q=" + encodeURIComponent(searchQuery);
+  }
+}
+
+
 // getMovies(API_URL);
 // function getMovies(url){
 //   fetch(url).then(res => res.json()).then(data =>{

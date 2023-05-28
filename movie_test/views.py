@@ -24,6 +24,12 @@ def film_year(request, movie_year):
     media = Media.objects.filter(year=movie_year)
     return render(request, 'media_year.html', {'Media': media})
 
+def search(request):
+    query = request.GET.get('q')
+    media = Media.objects.filter(title__icontains=query)
+    # Vous pouvez également filtrer les résultats en fonction d'autres critères
+    return render(request, 'search.html', {'Media': media, 'query': query})
+
 # def film_detail(request, Media_id):
 #     media = Media.objects.get(id=Media_id)
 #     average_rating = media.get_average_rating()

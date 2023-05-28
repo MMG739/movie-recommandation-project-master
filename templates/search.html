@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  <title>Home - MovieSn</title>
+  <title>Films - MovieSn</title>
 </head>
 <body>
   <div class="navbar">
@@ -18,16 +18,15 @@
       <li><a class="point" href="{% url 'series' %}">Series</a></li>
       <li><a class="point" href="{% url 'contact' %}">Contact</a></li>
     </ul>
-    
     <form action="{% url 'search' %}" method="GET" class="group action_btn">
-      <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
-          <g>
-              <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
-          </g>
-      </svg>
-      <input placeholder="Rechercher" type="search" class="input" name="q" id="search-input" onkeydown="if (event.keyCode === 13) performSearch();">
-  </form>
-  
+        <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+            <g>
+                <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
+            </g>
+        </svg>
+        <input placeholder="Rechercher" type="search" class="input" name="q" id="search-input" onkeydown="if (event.keyCode === 13) performSearch();">
+    </form>
+
 
     <div class="toggle_btn">
       <i class="fa-solid fa-bars-staggered"></i>
@@ -46,24 +45,25 @@
     </li>
   </div>
 
-  <div class="main";">
-    <div class="recommandation">
-      <div class="parent" >
-        
-      </div>
-    </div>
-  </div>
+
 
   <div class="films_section">
     <div class="films_items" id="main">
-      {% for movie in Media %}
-        <a href="{% url 'film_detail' movie.id %}">
-          <div class="film">
-              <img class="images" src="{{movie.get_img}}" alt="Film">
-              <h3>{{movie.title}}</h3>
-          </div>
-      </a>
-        {% endfor %}
+        <ul>
+            <h1 class="title">Résultats de la recherche pour "{{ query }}" : </h1>
+            {% for me in Media %}
+            <a href="{% url 'film_detail' me.id %}">
+              <div class="movie">
+                <img class="images" src="{{me.get_img}}"  alt="Film">
+                <h3>{{me.title}}</h3>
+              </div>
+            </a>
+                <!-- Affichez d'autres détails de l'article si nécessaire -->
+            {% empty %}
+                <li>Aucun résultat trouvé.</li>
+            {% endfor %}
+           
+        </ul>
     </div>
 
     <div class="choice_menu">
@@ -211,16 +211,7 @@
     </div>
   </div>
 
-  <footer style="margin-top: 1.3vh;">
-    <div class="container">
-      <p>&copy; 2023 MovieSn - Tous droits réservés</p>
-      <ul class="social">
-        <li><a href="https://github.com/MLaminekane"><i class="fab fa-github"></i></a></li>
-        <li><a href="https://twitter.com/mlaminekane01"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-      </ul>
-    </div>
-  </footer>
+
 
   <script src="{% static '/Js/apps.js' %}"></script>
 
