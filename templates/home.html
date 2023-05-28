@@ -48,113 +48,21 @@
   <div class="main";">
     <div class="recommandation">
       <div class="parent" >
-        {% for movie in Media %}
-        <a href="{% url 'film_detail' movie.id %}">
-          <div class="film">
-              <div class="note">{{movie.get_average_rating}}</div>
-              <img class="images" src="{{movie.get_img}}" alt="Film">
-              <h3>{{movie.title}}</h3>
-              <p class="date">{{movie.year}}</p>
-          </div>
-      </a>
-        {% endfor %}
+        
       </div>
     </div>
   </div>
 
   <div class="films_section">
     <div class="films_items" id="main">
-      <a href="">
-        <div class="movie">
-          <img src="{% static '/images/1EnBjTJ5utgT1OXYBZ8YwByRCzP.jpg' %}" alt="Die Hart">
-          <p class="date">2023</p>
-        </div>
+      {% for movie in Media %}
+        <a href="{% url 'film_detail' movie.id %}">
+          <div class="film">
+              <img class="images" src="{{movie.get_img}}" alt="Film">
+              <h3>{{movie.title}}</h3>
+          </div>
       </a>
-      <a href="">
-        <div class="movie">
-          <img src="{% static '/images/3GrRgt6CiLIUXUtoktcv1g2iwT5.jpg' %}" alt="Shazam">
-          <p class="date">2023</p>
-        </div>
-      </a>
-      <a href="">
-        <div class="movie">
-          <img src="{% static '/images/aCy61aU7BMG7SfhkaAaasS0KzUO.jpg' %}" alt="Ssyen">
-          <p class="date">2023</p>
-        </div>
-      </a>
-      <a href="">
-        <div class="movie">
-          <img src="{% static '/images/d9nBoowhjiiYc4FBNtQkPY7c11H.jpg' %}" alt="Megan">
-          <p class="date">2022</p>
-        </div>
-      </a>
-      <a href="">
-        <div class="movie">
-        <img src="{% static '/images/gOnmaxHo0412UVr1QM5Nekv1xPi.jpg' %}" alt="Cocaine Bear">
-        <p class="date">2023</p>
-        </div>
-      </a>
-      <a href="">
-        <div class="movie">
-          <img src="{% static '/images/jQ0gylJMxWSL490sy0RrPj1Lj7e.jpg' %}" alt="The Whale">
-          <p class="date">2023</p>
-        </div>
-      </a>
-      <a href="">
-        <div class="movie">
-          <img src="{% static '/images/vJU3rXSP9hwUuLeq8IpfsJShLOk.jpg ' %}" alt="Creed 2">
-          <p class="date">2023</p>
-        </div>
-      </a>
-      <a href="">
-        <div class="movie">
-          <img src="{% static '/images/qi9r5xBgcc9KTxlOLjssEbDgO0J.jpg' %}" alt="Plane">
-          <p class="date">2023</p>
-        </div>
-      </a>
-      <a href="">
-        <div class="movie">
-          <img src="{% static '/images/ngl2FKBlU4fhbdsrtdom9LVLBXw.jpg'%} "alt="Ant-Man QUANTUMANIA">
-          <p class="date">2023</p>
-        </div>
-      </a>
-      <a href="">
-        <div class="movie">
-          <img src="{% static '/images/v5CfpzxoJDkZxjZAizClFdlEF0U.jpg' %}" alt="Shark Side Of The Moon">
-          <p class="date">2022</p>
-        </div>
-      </a>
-      <a href="">
-        <div class="movie">
-          <img src="{% static '/images/dm06L9pxDOL9jNSK4Cb6y139rrG.jpg'%}" alt="Knock At The Cabin">
-          <p class="date">2023</p>
-        </div>
-      </a>
-      <a href="">
-        <div class="movie">
-          <img src="{% static '/images/hrATQE8ScQceohwInaMluluNEaf.jpg' %}" alt="Batman">
-          <p class="date">2023</p>
-        </div>
-      </a>
-      <a href="">
-        <div class="movie">
-          <img src="{% static '/images/sick.jpg' %}" alt="Sick">
-          <p class="date">2023</p>
-        </div>
-      </a>
-      <a href="">
-        <div class="movie">
-          <img src="{% static '/images/troll.jpg' %}" alt="Troll">
-          <p class="date">2023</p>
-        </div>
-      </a>
-      <a href="">
-        <div class="movie">
-          <img src="{% static '/images/troll.jpg' %}" alt="Troll">
-          <p class="date">2023</p>
-        </div>
-      </a>
-      
+        {% endfor %}
     </div>
 
     <div class="choice_menu">

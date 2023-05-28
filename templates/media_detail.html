@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/rating.scss' %}">
   <title>Home - MovieSn</title>
 </head>
 <body>
@@ -45,27 +46,35 @@
     </li>
   </div>
 
-
-  <a href="">
-    <div class="film">
-        <div class="note">{{Media.get_average_rating}}</div>
+  <nav style="display: flex; align-items: center; justify-content: center;">
+    <!-- image de background de film -->
+    <h1 style="color: white; font-size: 3vh;">{{Media.title}} en streaming</h1>
+  </nav>
+  
+  <div style="display: flex;" >
+    <div>
+      <div class="film">
+        <!-- <div class="note">{{Media.get_average_rating}}</div> -->
         <img class="images" src="{{Media.get_img}}" alt="Film">
         <h3>{{Media.title}}</h3>
-        <p class="date">{{Media.year}}</p>
-        <h3>Description:</h3>
-        <h4>{{Media.description}}</h4>
+      </div>
+      
     </div>
-</a>
-<form action="" method="post">
-    {% csrf_token %}
-    <label for="rating">Votre note:</label>
-    <input type="number" name="rating" id="rating" min="0" max="5">
-    <input type="submit" value="Ajouter">
-</form>
 
-
-
+    <div>
+      <h3>Titre Original: {{Media.title}}</h3>
+      <h3>Date: {{Media.year}}</h3>
+      <h3>Genre: {{Media.genre}}</h3>
+      <h3>Acteurs: </h3>
+      <h3>Version: VF</h3>
+      <h3>Qualite: 1080p</h3>
     </div>
+
+  </div>
+  <div>
+    <h3>Description: </h3>
+    <h3>{% lorem 1 b random %} <!--{{Media.description}} !-->   </h3>
+  </div>
 </div>
 
 <footer class="footer_test">
@@ -78,8 +87,6 @@
     </ul>
     </div>
 </footer>
-
 <script src="{% static '/Js/apps.js' %}"></script>
-
 </body>
 </html>

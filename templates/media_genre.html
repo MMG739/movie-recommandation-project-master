@@ -51,7 +51,7 @@
     <div class="films_items" id="main">
 
       {% for movie in Media %}
-        <a href="">
+      <a href="{% url 'film_detail' movie.id %}">
           <div class="movie">
             <img class="images" src="{{movie.get_img}}"  alt="Film">
             <h3>{{movie.title}}</h3>
